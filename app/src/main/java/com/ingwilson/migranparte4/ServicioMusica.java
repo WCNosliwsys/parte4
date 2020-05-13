@@ -1,15 +1,19 @@
 package com.ingwilson.migranparte4;
 
 
+import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.BitmapFactory;
 import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Build;
 import android.os.IBinder;
+import android.text.Html;
 import android.widget.Toast;
 
 import androidx.core.app.NotificationCompat;
@@ -26,10 +30,20 @@ public class ServicioMusica extends Service {
     }
     @Override
     public int onStartCommand(Intent intenc, int flags, int idArranque) {
+        Intent intencionLlamar = new Intent(Intent.ACTION_DIAL,
+                Uri.parse("tel:555123456"));
+        PendingIntent intencionPendienteLlamar =
+                PendingIntent.getActivity(this,0, intencionLlamar,0);
+
         NotificationCompat.Builder notific = new NotificationCompat.Builder(this)
                 .setContentTitle("Creando Servicio de Música")
-                .setSmallIcon(R.mipmap.ic_launcher)
-                .setContentText("información adicional");
+                .setContentText(Html.fromHtml("<b>Notificación</b> <u>Android<i>UPT</i></u>"))
+                .setLargeIcon(BitmapFactory.decodeResource(getResources(),
+                        android.R.drawable.ic_media_play))
+                .addAction(android.R.drawable.ic_menu_call, "llamar", intencionPendienteLlamar)
+                .addAction(android.R.drawable.ic_menu_call, "contestar", intencionPendienteLlamar)
+                .addAction(android.R.drawable.ic_menu_call, "whatsapp", intencionPendienteLlamar)
+                .setSmallIcon(R.mipmap.ic_launcher);
         // Para lanzar una actividad
         PendingIntent intencionPendiente = PendingIntent.getActivity(
                 this, 0, new Intent(this, Servicio.class), 0);
