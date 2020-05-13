@@ -43,6 +43,12 @@ public class ServicioMusica extends Service {
                 .addAction(android.R.drawable.ic_menu_call, "llamar", intencionPendienteLlamar)
                 .addAction(android.R.drawable.ic_menu_call, "contestar", intencionPendienteLlamar)
                 .addAction(android.R.drawable.ic_menu_call, "whatsapp", intencionPendienteLlamar)
+                .setStyle(new NotificationCompat.InboxStyle()
+                        .addLine("Nueva Conferencia Los neutrinos")
+                        .addLine("Nuevo curso Android Wear")
+                        .setBigContentTitle("2 notificaciones UPT")
+                        .setSummaryText("info@upt.pe"))
+                .setNumber(2)
                 .setSmallIcon(R.mipmap.ic_launcher);
         // Para lanzar una actividad
         PendingIntent intencionPendiente = PendingIntent.getActivity(
@@ -61,10 +67,12 @@ public class ServicioMusica extends Service {
             notificationManager.createNotificationChannel(notificationChannel);
             notific.setChannelId(NOTIFICATION_CHANNEL_ID);
         }
-        notificationManager.notify(ID_NOTIFICACION_CREAR, notific.build());
+        //notificationManager.notify(ID_NOTIFICACION_CREAR, notific.build());
         Toast.makeText(this,"Servicio arrancado "+ idArranque,
                 Toast.LENGTH_SHORT).show();
         reproductor.start();
+        startForeground(101,notific.build()
+        );
         return START_STICKY;
     }
     @Override public void onDestroy() {
