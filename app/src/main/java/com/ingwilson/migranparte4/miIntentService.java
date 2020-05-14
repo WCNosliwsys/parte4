@@ -22,7 +22,7 @@ public class miIntentService extends AppCompatActivity {
         entrada = (EditText) findViewById(R.id.entrada);
         salida = (TextView) findViewById(R.id.salida);
         miprogress=findViewById(R.id.miprogress);
-        IntentFilter filtro = new IntentFilter(ReceptorOperacion.ACTION_RESP);
+        IntentFilter filtro = new IntentFilter("mioperacion");
         filtro.addCategory(Intent.CATEGORY_DEFAULT);
         registerReceiver(new ReceptorOperacion(), filtro);
     }
@@ -37,7 +37,7 @@ public class miIntentService extends AppCompatActivity {
     }
     public class ReceptorOperacion extends BroadcastReceiver {
         public static final String ACTION_RESP =
-                "com.example.intentservice.intent.action.RESPUESTA_OPERACION";
+                "mioperacion";
         @Override
         public void onReceive(Context context, Intent intent) {
             Double res = intent.getDoubleExtra("resultado", 0.0);

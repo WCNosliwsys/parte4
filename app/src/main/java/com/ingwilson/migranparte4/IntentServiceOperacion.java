@@ -17,7 +17,7 @@ public class IntentServiceOperacion extends IntentService {
 
        // miIntentService.miprogress.setVisibility(View.GONE);
         Intent i = new Intent();
-        i.setAction(miIntentService.ReceptorOperacion.ACTION_RESP);
+        i.setAction("mioperacion");
         i.addCategory(Intent.CATEGORY_DEFAULT);
         i.putExtra("resultado", n*n);
         sendBroadcast(i);
