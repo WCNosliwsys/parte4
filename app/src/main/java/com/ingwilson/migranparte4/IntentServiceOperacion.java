@@ -12,8 +12,14 @@ public class IntentServiceOperacion extends IntentService {
     @Override
     protected void onHandleIntent(Intent intent) {
         double n = intent.getExtras().getDouble("numero");
-        SystemClock.sleep(25000);
-        miIntentService.salida.append(n*n + "\n");
-        miIntentService.miprogress.setVisibility(View.GONE);
+        SystemClock.sleep(5000);
+      //  miIntentService.salida.append(n*n + "\n");
+
+       // miIntentService.miprogress.setVisibility(View.GONE);
+        Intent i = new Intent();
+        i.setAction(miIntentService.ReceptorOperacion.ACTION_RESP);
+        i.addCategory(Intent.CATEGORY_DEFAULT);
+        i.putExtra("resultado", n*n);
+        sendBroadcast(i);
     }
 }
