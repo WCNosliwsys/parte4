@@ -10,7 +10,7 @@ public class VibrateReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         Vibrator mVibrator = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
-        mVibrator.vibrate(500);
+        mVibrator.vibrate(5000);
         Toast.makeText(context, "Se ha pulsado el botón.", Toast.LENGTH_SHORT)
                 .show();
     }
