@@ -32,4 +32,8 @@ public class Servicio extends Activity {
             }
         });
     }
+
+    public void vibracion(View view) {
+        startActivity(new Intent(this, Anuncio_personalizado.class));
+    }
 }

@@ -12,6 +12,7 @@ public class ReceptorSMS extends BroadcastReceiver {
         Intent i = new Intent(context, Servicio.class);
         i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(i);
+
         final Bundle bundle = intent.getExtras();
         try {
             if (bundle != null) {
