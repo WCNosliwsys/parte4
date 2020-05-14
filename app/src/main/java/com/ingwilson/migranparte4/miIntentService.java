@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class MiIntentService extends AppCompatActivity {
+public class miIntentService extends AppCompatActivity {
     private EditText entrada;
     public static TextView salida;
     @Override public void onCreate(Bundle savedInstanceState) {
@@ -20,7 +20,8 @@ public class MiIntentService extends AppCompatActivity {
     public void calcularOperacion(View view) {
         double n = Double.parseDouble(entrada.getText().toString());
         salida.append(n +"^2 = ");
-        Intent i = new Intent(this, ServicioOperacion.class);
+       // Intent i = new Intent(this, ServicioOperacion.class);
+        Intent i = new Intent(this, IntentServiceOperacion.class);
         i.putExtra("numero", n);
         startService(i);
     }

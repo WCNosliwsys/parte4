@@ -10,7 +10,7 @@ public class ServicioOperacion extends Service {
     public int onStartCommand(Intent i, int flags, int idArranque){
         double n = i.getExtras().getDouble("numero");
         SystemClock.sleep(25000);
-        MiIntentService.salida.append(n*n + "\n");
+        miIntentService.salida.append(n*n + "\n");
         return START_NOT_STICKY;
     }
     @Override

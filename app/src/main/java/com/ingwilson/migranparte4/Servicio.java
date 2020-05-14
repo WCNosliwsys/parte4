@@ -1,7 +1,5 @@
 package com.ingwilson.migranparte4;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Build;
@@ -42,6 +40,6 @@ public class Servicio extends Activity {
     }
 
     public void miintentService(View view) {
-        startActivity(new Intent(this, MiIntentService.class));
+        startActivity(new Intent(this, miIntentService.class));
     }
 }

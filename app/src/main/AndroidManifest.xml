@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MiIntentService"></activity>
+        <activity android:name=".miIntentService"></activity>
         <activity android:name=".Anuncio_personalizado" />
         <activity android:name=".Servicio">
             <intent-filter>
@@ -32,6 +32,7 @@
 
         <service android:name=".ServicioMusica" />
         <service android:name=".ServicioOperacion"/>
+        <service android:name=".IntentServiceOperacion"/>
     </application>
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.READ_CALL_LOG" />
